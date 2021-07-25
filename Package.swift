@@ -4,22 +4,24 @@
 import PackageDescription
 
 let package = Package(
-    name: "ServiceKit",
-    platforms: [.iOS(.v12)],
+    name: "SocketKit",
+    platforms: [.iOS(.v13)],
     products: [
         .library(
-            name: "ServiceKit",
-            targets: ["ServiceKit"]),
+            name: "SocketKit",
+            targets: ["SocketKit"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.4.0"))
+        .package(name: "PusherSwift" ,url: "https://github.com/pusher/pusher-websocket-swift.git", from: "10.0.0"),
     ],
     targets: [
         .target(
-            name: "ServiceKit",
-            dependencies: ["Alamofire"]),
+            name: "SocketKit",
+            dependencies: [
+                "PusherSwift",
+            ]),
         .testTarget(
-            name: "ServiceKitTests",
-            dependencies: ["ServiceKit"]),
+            name: "SocketKitTests",
+            dependencies: ["SocketKit"]),
     ]
 )
