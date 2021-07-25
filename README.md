@@ -1,3 +1,2 @@
-# ChatKit
-
-A description of this package.
+# SocketKit
+Simple Socket using Pusher
