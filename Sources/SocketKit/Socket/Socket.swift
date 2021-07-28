@@ -68,7 +68,7 @@ public class Socket {
     private var channels: [PusherChannel] = []
     private var parser: Parser { JSONParser() }
 
-    weak var datasource: SocketDatasource?
+    public weak var datasource: SocketDatasource?
     
     
     private var authMethod: AuthMethod = {
