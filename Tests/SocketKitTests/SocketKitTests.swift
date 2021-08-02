@@ -1,7 +1,7 @@
     import XCTest
-    @testable import ChatKit
+    @testable import SocketKit
 
-    final class ChatKitTests: XCTestCase {
+    final class SocketKitTests: XCTestCase {
         func testExample() {
             // This is an example of a functional test case.
             // Use XCTAssert and related functions to verify your tests produce the correct
