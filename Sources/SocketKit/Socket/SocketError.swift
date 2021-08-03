@@ -11,7 +11,7 @@ public enum SocketError: Error {
     case noChannel
     case parsingError(_ error: Error)
     
-    var message: String {
+    public var message: String {
         switch self {
         case .emptyOption: return "There is no option."
         case .channelExist: return "The channel currently is subscribing."
