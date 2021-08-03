@@ -1,11 +1,12 @@
 //
-//  File.swift
+//  Options.swift
 //  
 //
 //  Created by MohammadReza Ansary on 8/2/21.
 //
 
 import Foundation
+import PusherSwift
 
 public protocol Options {
     var authMethod: AuthMethod { get set }
@@ -30,7 +31,7 @@ extension Options {
 
 extension PusherClientOptions: Options { }
 
-fileprivate extension Options {
+extension Options {
     var pusherClientOptions: PusherClientOptions {
         .init(
             authMethod: authMethod,
