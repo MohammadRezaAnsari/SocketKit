@@ -19,7 +19,7 @@ public protocol Options {
     var activityTimeout: TimeInterval? { get }
 }
 
-extension Options {
+public extension Options {
     var authMethod: AuthMethod {
         #if DEBUG
         return .inline(secret: "6cbdbeb15886107d0a0e")
