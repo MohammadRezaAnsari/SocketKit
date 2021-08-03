@@ -19,8 +19,8 @@ public protocol Options {
     var activityTimeout: TimeInterval? { get }
 }
 
-public extension Options {
-    var authMethod: AuthMethod {
+extension Options {
+    public var authMethod: AuthMethod {
         #if DEBUG
         return .inline(secret: "6cbdbeb15886107d0a0e")
         #else
