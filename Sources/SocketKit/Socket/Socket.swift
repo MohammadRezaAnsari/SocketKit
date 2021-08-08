@@ -71,7 +71,7 @@ extension Socket: SocketManager {
 // MARK: - Socket Function
 extension Socket {
     
-    public func subscribe<T: Codable>(for event: String, on channel: String, handler: @escaping (Result<T, SocketError>) -> Void) {
+    public func subscribe<T: Codable>(for event: String, on channel: String, handler: @escaping (Result<T, Error>) -> Void) {
         
         guard let channel = pusher.connection.channels.channels.first(where: { $0.key == channel }) else {
             
@@ -98,7 +98,7 @@ extension Socket {
                 handler(.success(result))
             }
             catch let error {
-                handler(.failure(.parsingError(error)))
+                handler(.failure(SocketError.parsingError(error)))
             }
         }
     }
