@@ -49,7 +49,7 @@ extension Socket: SocketManager {
     }
     
     public func subscribe(_ name: String) throws {
-        guard pusher.connection.channels.channels.contains(where: { $0.key != name  }) else {
+        guard !pusher.connection.channels.channels.contains(where: { $0.key == name  }) else {
             throw(SocketError.channelExist)
         }
         _ = pusher.subscribe(name)
@@ -81,15 +81,13 @@ extension Socket {
             } catch let error {
                 handler(.failure(error as! SocketError))
             }
-            
             return
         }
-        
         
         channel.value.bind(eventName: event) { event in
             
             guard let json: String = event.data, let jsonData: Data = json.data(using: .utf8) else {
-                print("Could not convert JSON string to data")
+                assertionFailure("ForDebug: Could not convert JSON string to data")
                 return
             }
             
