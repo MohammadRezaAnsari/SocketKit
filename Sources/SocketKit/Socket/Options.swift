@@ -19,16 +19,6 @@ public protocol Options {
     var activityTimeout: TimeInterval? { get }
 }
 
-extension Options {
-    public var authMethod: AuthMethod {
-        #if DEBUG
-        return .inline(secret: "6cbdbeb15886107d0a0e")
-        #else
-        return .inline(secret: "")
-        #endif
-    }
-}
-
 extension PusherClientOptions: Options { }
 
 extension Options {
