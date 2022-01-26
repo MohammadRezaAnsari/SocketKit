@@ -159,32 +159,10 @@ extension Socket {
 // MARK: - Default Pusher Delegate
 extension Socket: PusherDelegate {
     
-    public func debugLog(message: String) {
-        print("Debug Socket: \(message)")
-    }
-    
-    public func changedConnectionState(from old: ConnectionState, to new: ConnectionState) {
-        print("Debug Socket: old state: \(old)")
-        print("Debug Socket: new state: \(new)")
-    }
-    
-    public func subscribedToChannel(name: String) {
-        print("Debug Socket: subscribe to channel successfully: \(name)")
-    }
-    
-    public func failedToSubscribeToChannel(name: String, response: URLResponse?, data: String?, error: NSError?) {
-        print("Debug Socket: did failed subscribe to channel: \(name)")
-        print("Debug Socket: response is \(String(describing: response))")
-        print("Debug Socket: error is \(String(describing: error))")
-    }
-    
-    public func failedToDecryptEvent(eventName: String, channelName: String, data: String?) {
-        print("Debug Socket: did failed to decrypt event with name \(eventName)")
-        print("Debug Socket: channel name is \(channelName)")
-        print("Debug Socket: date is \(String(describing: data))")
-    }
-    
-    public func receivedError(error: PusherError) {
-        print("Debug Socket: received error - \(error)")
-    }
+    public func debugLog(message: String) {}
+    public func changedConnectionState(from old: ConnectionState, to new: ConnectionState) {}
+    public func subscribedToChannel(name: String) {}
+    public func failedToSubscribeToChannel(name: String, response: URLResponse?, data: String?, error: NSError?) {}
+    public func failedToDecryptEvent(eventName: String, channelName: String, data: String?) {}
+    public func receivedError(error: PusherError) {}
 }
